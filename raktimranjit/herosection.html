@@ -1,0 +1,131 @@
+<div class="hero-container">
+    <div class="hero-bg"></div>
+    <div class="snow"></div>
+
+    <div class="hero-content">
+        <h2 class="hero-subtitle">Innovator &amp; Developer</h2>
+        <h1 class="hero-title">I am <span>Raktim Ranjit</span></h1>
+        <p class="hero-description">
+            Web Developer &amp; Founder of <strong>Nodedr</strong>. We specialize in server installation, AI automation, and capturing the world through casual photography.
+        </p>
+        
+        <div class="hero-btns">
+            <a href="/portfolio" class="btn btn-primary">Explore My Projects</a>
+            <a href="/#Light-%26-Silence" class="btn btn-secondary">See the Gallery</a>
+            <a href="/contant-us" class="btn btn-outline">Start a Conversation</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --cream: #F2F0D8;
+        --sage: #C5A059;
+        --charcoal: #2D2D2D;
+        --white: #FFFFFF;
+    }
+
+    .hero-container {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Keeps text at the bottom overlay */
+        align-items: center;
+        padding: 0 10% 60px 10%;
+        font-family: 'Inter', sans-serif;
+        overflow: hidden;
+        background-color: #1a1a1a;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        /* Subtle darkening at the bottom for text visibility while keeping the top clear */
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 90%), 
+                    url('https://www./web/image/144928.JPG');
+        background-size: cover;
+        /* Focused exactly on the upper-mid area where your head is in the full image */
+        background-position: center 30%; 
+        z-index: 1;
+        animation: subtleZoom 25s infinite alternate;
+    }
+
+    /* Snowflakes */
+    .snow, .snow::after, .snow::before {
+        content: "";
+        position: absolute;
+        top: -1000px; left: 0; bottom: 0; right: 0;
+        background-image: radial-gradient(2px 2px at 100px 50px, #fff, transparent),
+                          radial-gradient(3px 3px at 400px 150px, #fff, transparent);
+        background-size: 800px 800px;
+        animation: snowAnim 15s linear infinite;
+        z-index: 2;
+        opacity: 0.3;
+    }
+
+    .hero-content {
+        position: relative;
+        max-width: 850px;
+        text-align: center;
+        z-index: 10;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1.2s 0.5s forwards ease-out;
+    }
+
+    .hero-subtitle {
+        color: var(--sage);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .hero-title {
+        color: var(--white);
+        font-size: clamp(2.5rem, 7vw, 4.5rem);
+        font-weight: 800;
+        margin-bottom: 15px;
+    }
+
+    .hero-title span { color: var(--sage); }
+
+    .hero-description {
+        color: var(--white);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.6;
+        margin-bottom: 30px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+        padding: 12px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: 0.3s;
+    }
+
+    .btn-primary { background-color: var(--sage); color: white; }
+    .btn-secondary { background-color: white; color: var(--charcoal); }
+    .btn-outline { border: 2px solid var(--sage); color: var(--white); backdrop-filter: blur(5px); }
+
+    /* Animations */
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes subtleZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+    @keyframes snowAnim { from { transform: translateY(0); } to { transform: translateY(1000px); } }
+
+    /* Mobile Focus Adjustment */
+    @media (max-width: 768px) {
+        .hero-container { justify-content: flex-end; padding-bottom: 50px; }
+        .hero-bg { background-position: 30% 15%; } /* Shifts horizontally to center you on narrow screens */
+        .hero-title { font-size: 2.2rem; }
+        .hero-btns { flex-direction: column; width: 100%; }
+        .btn { width: 100%; text-align: center; }
+    }
+</style>
