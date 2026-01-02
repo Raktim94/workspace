@@ -1,0 +1,261 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@200;400;600&display=swap');
+
+:root {
+  --bg: #f4f2ea;
+  --dark: #1f1f1f;
+  --accent: #7a8f5a;
+  --muted: #6b6b6b;
+  --card: rgba(255, 255, 255, 0.8);
+  --terracotta: #B36A5E;
+}
+
+/* Base Fade-In Animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Breathing Glow Animation */
+@keyframes breatheGlow {
+  0%, 100% { text-shadow: 0 0 0px transparent; opacity: 0.9; }
+  50% { text-shadow: 0 0 15px rgba(122, 143, 90, 0.4); opacity: 1; }
+}
+
+#founder-journey {
+  background: var(--bg);
+  padding: 120px 20px;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.fj-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* STAGGERED ANIMATIONS */
+.animate-1 { animation: fadeInUp 0.8s ease forwards; }
+.animate-2 { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+.animate-3 { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+
+.fj-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.fj-title span {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+  animation: breatheGlow 4s infinite ease-in-out;
+}
+
+.fj-subtitle {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--muted);
+  margin-bottom: 80px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+.fj-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+}
+
+.fj-text p {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.fj-text strong {
+  color: var(--dark);
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+}
+
+.fj-card {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.03);
+  position: sticky;
+  top: 60px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fj-card:hover {
+  transform: scale(1.02) rotate(1deg);
+  box-shadow: 30px 30px 70px rgba(122, 143, 90, 0.1);
+}
+
+.fj-card h4 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 30px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.fj-card li {
+  margin-bottom: 18px;
+  font-size: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.fj-card li:hover { color: var(--terracotta); }
+
+/* INTERACTIVE TOGGLE */
+.fj-toggle {
+  margin-top: 120px;
+  text-align: center;
+  background: rgba(0,0,0,0.02);
+  padding: 60px 20px;
+  border-radius: 4px;
+}
+
+.toggle-buttons button {
+  background: transparent;
+  border: 1px solid var(--dark);
+  padding: 16px 40px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.toggle-buttons button.active {
+  background: var(--dark);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.toggle-content {
+  margin-top: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  font-style: italic;
+  display: none;
+  animation: fadeInUp 0.6s ease;
+}
+
+.toggle-content.active { display: block; }
+
+@media (max-width: 900px) {
+  .fj-grid { grid-template-columns: 1fr; }
+  .fj-title { font-size: 3.5rem; }
+}
+</style>
+
+<section id="founder-journey">
+  <div class="fj-container">
+    
+    <h1 class="fj-title animate-1">
+      The Founder’s Journey<br>
+      <span>Logic &amp; Art</span>
+    </h1>
+
+    <div class="fj-subtitle animate-2">
+      Founder · Lifelong Student · Perpetual Tinkerer
+    </div>
+
+    <div class="fj-grid animate-3">
+      <div class="fj-text">
+        <p>
+          Most of the tech world is comfortable renting the cloud — clicking buttons,
+          paying monthly, and outsourcing digital sovereignty. 
+          <strong>I chose a different path.</strong>
+        </p>
+
+        <p>
+          If a system can’t be self-hosted, it isn’t truly owned.
+          That belief is the heartbeat behind everything I build.
+          Control, understanding, and independence come before convenience.
+        </p>
+
+        <p>
+          My education didn’t come from theory alone. It came from the hum of server racks, 
+          failed deployments, and solving broken networks at 2:00 AM. Building from bare 
+          metal taught me not just <em>how</em> systems work — but <strong>why</strong> they fail.
+        </p>
+
+        <p>
+          Today, my platforms run on a <strong>High-Availability Proxmox Cluster</strong>, 
+          engineered with the same discipline I demanded from my home lab — 
+          resilient, redundant, and built to scale.
+        </p>
+      </div>
+
+      <div class="fj-card">
+        <h4>Infrastructure DNA</h4>
+        <ul>
+          <li>Bare-Metal First Architecture</li>
+          <li>TrueNAS Storage Systems</li>
+          <li>Proxmox Virtualization</li>
+          <li>High-Availability Automation</li>
+        </ul>
+        <p style="margin-top:40px; font-family:'Playfair Display'; font-style:italic; font-size:1.1rem; color: var(--terracotta);">
+          “Ownership begins where abstraction ends.”
+        </p>
+      </div>
+    </div>
+
+    <div class="fj-toggle animate-3">
+      <div class="toggle-buttons">
+        <button class="active" onclick="switchView('tech', this)">THE MACHINE</button>
+        <button onclick="switchView('art', this)">THE RESET</button>
+      </div>
+
+      <div id="tech" class="toggle-content active">
+        "Systems reward discipline. Architecture demands respect. Mastery comes from understanding the soul of the machine."
+      </div>
+
+      <div id="art" class="toggle-content">
+        "When the servers are humming, I step away. Photography is my reset — patience, light, and silence. A reminder that not everything should be optimized."
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function switchView(id, btn) {
+  // Hide all content
+  document.querySelectorAll('.toggle-content').forEach(el => {
+    el.classList.remove('active');
+  });
+  
+  // Remove active class from all buttons
+  document.querySelectorAll('.toggle-buttons button').forEach(b => {
+    b.classList.remove('active');
+  });
+
+  // Show selected content and set active button
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>

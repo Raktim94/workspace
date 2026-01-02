@@ -1,0 +1,60 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;600&display=swap');
+
+:root {
+  --gallery-bg: #121212;
+  --text-light: #F2F0D8;
+  --accent: #8A9A5B;
+}
+
+#gallery-intro {
+  background-color: var(--gallery-bg);
+  padding: 80px 20px 40px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* REPEATING ANIMATION: The Shutter Focus */
+@keyframes shutterFocus {
+  0% { letter-spacing: 15px; opacity: 0; filter: blur(10px); }
+  50% { letter-spacing: 4px; opacity: 1; filter: blur(0px); }
+  100% { letter-spacing: 15px; opacity: 0; filter: blur(10px); }
+}
+
+.shutter-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--text-light);
+  font-style: italic;
+  margin: 0;
+  display: inline-block;
+  animation: shutterFocus 6s infinite ease-in-out;
+  text-transform: capitalize;
+}
+
+.gallery-line {
+  width: 50px;
+  height: 1px;
+  background: var(--accent);
+  margin: 20px auto;
+  transition: width 1s ease;
+}
+
+#gallery-intro:hover .gallery-line {
+  width: 150px;
+}
+
+.gallery-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+</style>
+
+<div id="gallery-intro">
+  <div class="gallery-sub">The Visual Reset</div>
+  <h2 class="shutter-heading">Light &amp; Silence</h2>
+  <div class="gallery-line"></div>
+</div>
